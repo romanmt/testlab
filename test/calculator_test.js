@@ -1,11 +1,7 @@
-var assert     = require('assert')
-  , calculator = require('../lib/calculator')
-  , events     = require('events')
-  , sinon      = require('sinon')
-  , should     = require('should');
+var calculator = require('../lib/calculator');
 
 var it = function(statement, callback) {
-    exports[statement] = function (done) {
+    exports['test: ' + statement] = function (done) {
         var sandbox = sinon.sandbox.create();
         sandbox.finish = function() {
             sandbox.restore();

@@ -1,7 +1,8 @@
 {   "name"         : "testing"
   , "version"      : "0.0.1"
   , "dependencies" : 
-    { "underscore" : "1.1.5"
+    { "underscore"   : "1.1.5"
+      , "express"    : "2.2.0"
       , "eyes"       : "0.1.6"
       , "async"      : "0.1.9"
       , "sinon"      : "1.1.1"
