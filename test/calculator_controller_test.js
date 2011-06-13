@@ -4,20 +4,22 @@ var helper  = require('./test_helper.js')
 
 var app = express.createServer();
 
+app.on('close', function(){
+  console.log('Shutting down!');
+});
+
+
 app.post('/calculator/add', function (req, res) {
-    res.send('5');
+    res.send('hello');
 });
   
-it('POST /calculator/add with 2,3 returns 5', function (test) {
+it('GET /hello responds with hello', function (test) {
     test.response(app,
-        { url     : '/calculator/add'
-        , method  : 'POST'
-        , data    : JSON.stringify("1,2")
-        , headers : {'Content-Type' : "application/json" }}, 
-        { status  : 200,
-          body    : "5",
-          headers : {
-            'Content-Type': 'application/json' }
+        { url     : '/hello'
+        , method  : 'GET'
+        }, 
+        function (res) {
+            res.body.should.equal('hello');
+            test.finish();
         });
-    test.finish();
 });
