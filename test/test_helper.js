@@ -15,7 +15,6 @@ exports.it = function(exports) {
         sandbox.restore();
         test.skip();
       };
-
       delete assert.eql;
       Object.keys(assert).forEach(function(prop) {
         sandbox[prop] = assert[prop];

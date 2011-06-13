@@ -8,11 +8,14 @@ app.on('close', function(){
   console.log('Shutting down!');
 });
 
-
-app.post('/calculator/add', function (req, res) {
+app.get('/hello', function (req, res) {
     res.send('hello');
 });
-  
+ 
+app.get('/world', function(req, res) {
+    res.send('world');
+});
+
 it('GET /hello responds with hello', function (test) {
     test.response(app,
         { url     : '/hello'
@@ -22,4 +25,14 @@ it('GET /hello responds with hello', function (test) {
             res.body.should.equal('hello');
             test.finish();
         });
+});
+
+it('GET /world responds with world', function (test) {
+    test.response(app,
+                  { url : '/world'
+                  , method : 'GET'},
+                 function (res) {
+                    res.body.should.equal('world');
+                    test.finish();
+                 });
 });
